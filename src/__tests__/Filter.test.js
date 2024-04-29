@@ -32,7 +32,7 @@ test("calls the onSearchChange callback prop when the input is changed", () => {
 });
 
 test("the input field acts as a controlled input", () => {
-  render(<ShoppingList items={testData} />);
+  render(<Filter search="testing 123" onSearchChange={noop} />);
 
   fireEvent.change(screen.queryByPlaceholderText(/Search/), {
     target: { value: "testing 123" },
@@ -40,6 +40,7 @@ test("the input field acts as a controlled input", () => {
 
   expect(screen.queryByPlaceholderText(/Search/).value).toBe("testing 123");
 });
+
 
 // Shopping List
 test("the shopping list displays all items when initially rendered", () => {
